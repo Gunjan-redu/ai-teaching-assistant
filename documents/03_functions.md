@@ -39,3 +39,7 @@ calculate(4, 10)
 
 ```
 Here, the calculate function has 2 parameters a and b, when you call the function you must exactly two values, one for each parameter. The first value in the function call 4 is given to the first parameter which is a and second value 10 is given to the second parameter.
+
+
+<!-- TODO: return vs print -->
+
