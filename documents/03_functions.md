@@ -40,6 +40,38 @@ calculate(4, 10)
 ```
 Here, the calculate function has 2 parameters a and b, when you call the function you must exactly two values, one for each parameter. The first value in the function call 4 is given to the first parameter which is a and second value 10 is given to the second parameter.
 
+## return statement
 
-<!-- TODO: return vs print -->
+The variables we create inside a function are called local variables, which means you can't access them outside the function.That's why we use return values from the function using a return statement. 
+
+```python
+def calculate():
+    a = 8+6             # a is a local variable, accessing outside would give us an error
+    return  a
+
+
+b = calculate()   # value of a is assigned to b as soon as we call the function
+print(b)
+```
+
+print() displays a value on the screen, while return sends a value back from a function so you can store it in a variable or use it in another calculation. For example, print(5 + 3) displays 8, but return 5 + 3 inside a function lets you reuse the result later. Remember: print shows a result, while return gives a result back to the code that called the function.
+
+## Try It Yourself
+
+Create a function called add_numbers that takes two numbers as arguments and returns their sum.
+Call the function with 5 and 3, store the result in a variable, and print it.
+
+```python
+def add_numbers(a, b):
+    
+    # Write your code here
+
+result = add_numbers(5, 3)
+print(result)
+
+```
+
+
+
+
 
