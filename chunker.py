@@ -33,11 +33,11 @@ def chunk_documents(path) -> list[dict]:
         merged = []
         for c in chunks:
             if c["text"].startswith("```") and merged:
-                merged[-1]["text"] += "\n\n" + c["text"]  # staple onto previous
+                merged[-1]["text"] += "\n\n" + c["text"]
             else:
-                merged.append(c)  # normal chunk, keep it
+                merged.append(c)
 
-        for i, c in enumerate(merged):  # renumber 0,1,2,... (merging left gaps)
+        for i, c in enumerate(merged):
             c["chunk_index"] = i
     return merged
 
