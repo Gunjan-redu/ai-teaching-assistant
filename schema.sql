@@ -4,7 +4,7 @@ CREATE TABLE chunks(
      heading TEXT,
      chunk_index INTEGER NOT NULL,
      content TEXT NOT NULL,
-     embedding vector(1536)     -- needs pgvector extension; dimension TBD by model
+     embedding vector(1024),  -- voyage-code-4 embeddings, 1024 dims
      created_at TIMESTAMP DEFAULT now()
 
 )

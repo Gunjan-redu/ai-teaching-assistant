@@ -42,5 +42,5 @@ def chunk_documents(path) -> list[dict]:
     return merged
 
 if __name__ == "__main__":
-    for c in chunk_documents("documents/01_variables.md"):
+    for c in chunk_documents("documents/02_loops.md"):
         print(f"[{c['chunk_index']}] ({c['heading']}) {len(c['text'])} chars: {c['text'][:60]!r}")

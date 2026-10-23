@@ -75,7 +75,6 @@ while True:
 ```
 This is forever loop because the there's no condition here instead just a boolean value True which never happens to be False so the loop never stops, you have to press Ctrl+C to force it to stop
 
-
 ```python
 while False:
     print("Gunjan is so cool")
