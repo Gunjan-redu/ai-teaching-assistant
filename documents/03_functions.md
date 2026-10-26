@@ -1,7 +1,7 @@
 ## Functions
 
 
-help us keep our us keep our code DRY.
+
 In coding we have a concept called DRY- do not repeat yourself. Repeating your code is considered a bad practice. And functions help us keep our code DRY.
 How?
 
@@ -10,13 +10,12 @@ How?
 def greeting():
     print("Gunjan is so smart")
     
-    
 greeting()
 
 ```
 This is how we create a function write def, then write the name of the function followed by the round brackets.
 But this wouldn't work until we call the function.To call the function we need to put the name of the function followed by set of parenthesis or as kids like to call it round brackets.
-You can call the function as many times as you like. So, everytime you need this code you don't need to write it all over again, we can just call the function. This saves you alot of time and also keeps your code DRY.
+You can call the function as many times as you like. S, everytime you need this code you don't need to write it all over again, we can just call the function. This saves you alot of time and also keeps your code DRY.
 
 We can also customize the functions:
 
