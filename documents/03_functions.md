@@ -1,7 +1,7 @@
 ## Functions
 
 
-
+In Python, a function is a reusable block of code that executes only when called.
 In coding we have a concept called DRY- do not repeat yourself. Repeating your code is considered a bad practice. And functions help us keep our code DRY.
 How?
 
