@@ -11,12 +11,8 @@ conn = psycopg2.connect(host="localhost", port =5433, dbname = "teaching_assista
 cur = conn.cursor()
 
 def find_relevant_chunk(question: str, top_k=3) -> list[dict]:
-   time.sleep(21)
    result=  vo.embed([question], model='voyage-code-4', input_type="query")
-
    emb_question =  str(result.embeddings[0])
-
-
    cur.execute(
       """
          SELECT document_name, heading, content, 
