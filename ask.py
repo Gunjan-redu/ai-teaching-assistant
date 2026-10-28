@@ -32,7 +32,7 @@ def answer_question(query: str) -> dict:
 
 
 if __name__ == "__main__":
-    result = answer_question("Who is the prime minister of India?")
+    result = answer_question("What is a variable?")
     print(result["answer"])
     print("\nSources:")
     for s in result["sources"]:

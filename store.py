@@ -13,14 +13,13 @@ conn = psycopg2.connect(host="localhost", port =5433, dbname = "teaching_assista
 cur = conn.cursor()
 
 if __name__ == "__main__":
-
-
     all_chunks  = []
-
     for d in docs:
-        all_chunks .extend(chunk_documents(d))
+        doc_chunks = chunk_documents(d)
+        cur.execute("DELETE FROM chunks WHERE document_name = %s", (d,))
+        all_chunks.extend(doc_chunks)
+
     print(f"{len(all_chunks)} chunks")
-    print(all_chunks)
 
     vo = voyageai.Client()
     texts = [c["text"]   for c in all_chunks]
@@ -38,4 +37,5 @@ if __name__ == "__main__":
         )
     conn.commit()
     cur.close()
+    conn.close()
     print("stored")
