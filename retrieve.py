@@ -32,7 +32,8 @@ def find_relevant_chunk(question: str, top_k=3) -> list[dict]:
 
 
 if __name__ == "__main__":
-    for q in ["what is a float?", "how do I repeat code?", "what is a while loop?"]:
+    for q in ["what is a dictionary?", "how do I repeat code?", "what is a while loop?"]:
         print(f"\n=== {q}")
         for c in find_relevant_chunk(q):
+
             print(f"  [{c['distance']:.3f}] {c['doc']} / {c['heading']}: {c['content'][:60]!r}")
