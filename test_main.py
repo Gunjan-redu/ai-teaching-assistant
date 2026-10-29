@@ -5,7 +5,28 @@ from retrieve import find_relevant_chunk
 
 client = TestClient(app)
 
-def test_ask_returns_answer_and_sources():
+def test_ask_returns_answer_and_sources(monkeypatch):
+    class FakeTextBlock:
+        type = "text"
+        text = "A while loop repeats while a condition is true."
+
+    class FakeMessage:
+        content = [FakeTextBlock()]
+
+    def fake_create(*args, **kwargs):
+        return FakeMessage()
+
+    class FakeEmbedding:
+        embeddings = [[0.1] * 1024]
+
+    def fake_embed(*args, **kwargs):
+        return FakeEmbedding()
+
+    import retrieve
+    monkeypatch.setattr(retrieve.vo, "embed", fake_embed)
+
+    import ask
+    monkeypatch.setattr(ask.client.messages, "create", fake_create)
 
     res = client.post("/ask", json = {"question": "What is a function? "})
 
@@ -15,11 +36,22 @@ def test_ask_returns_answer_and_sources():
     assert isinstance(res["sources"] , list)
 
 
-def test_alien_question_refused_with_empty_sources():
-    res = client.post("/ask", json = {"question": "Who is the president of France?" })
+def test_alien_question_refused_with_empty_sources(monkeypatch):
+
+    class FakeEmbedding:
+        embeddings =  [[0.9] * 1024]
+
+    def get_fake_embedings(*args, **kwargs):
+        return FakeEmbedding()
+
+    import retrieve
+
+    monkeypatch.setattr(retrieve.vo, "embed", get_fake_embedings)
+
+    res = client.post("/ask", json={"question": "anything"})
     assert res.status_code == 200
-    res = res.json()
-    assert res["sources"] == []
+    data = res.json()
+    assert data["sources"] == []
 
 
 def test_missing_question_422():
