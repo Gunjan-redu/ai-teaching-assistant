@@ -12,5 +12,35 @@
 
     <div id="answer"></div>
     <div id="sources"></div>
+
+
+
+    <script>
+
+
+    document.getElementById("askBtn").addEventListener("click", async() => {
+
+        const question = document.getElementById("question").value;
+        document.getElementById("answer").innerText = "Thinking...";
+        document.getElementById("sources").innerText = "";
+
+        const res = await fetch( "/ask",  {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({question: question})
+        });
+
+        const data = await res.json();
+        document.getElementById("answer").innerText = data.answer || data.detail;
+        document.getElementById("sources").innerText =
+        data.sources?.length ? "Sources: " + data.sources.map(s => s.doc + " / " + s.heading).join(", ") : "";
+
+
+    });
+
+    </script>
+
+
+
 </body>
 </html>
