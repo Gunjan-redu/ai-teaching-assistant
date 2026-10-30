@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from fastapi.responses import FileResponse
 
 from ask import answer_question
 import anthropic
@@ -18,6 +19,12 @@ class Source(BaseModel):
 class AskOut(BaseModel):
     answer: str
     sources: list[Source]
+
+
+@app.get("/")
+def home():
+    return FileResponse("static/index.html")
+
 
 @app.post("/ask")
 def ask(body:AskIn)-> AskOut:
