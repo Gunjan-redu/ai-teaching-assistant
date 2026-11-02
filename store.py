@@ -9,7 +9,7 @@ load_dotenv()
 
 docs = ["documents/01_variables.md", "documents/02_loops.md", "documents/03_functions.md"]
 
-conn = psycopg2.connect(host=os.environ["DB_HOST"], port =os.environ["DB_Port"], dbname = os.environ["DB_NAME"], user=os.environ["DB_USER"], password = os.environ["DB_PASSWORD"])
+conn = psycopg2.connect(host=os.environ["DB_HOST"], port =os.environ.get("DB_PORT", "5432"), dbname = os.environ["DB_NAME"], user=os.environ["DB_USER"], password = os.environ["DB_PASSWORD"])
 
 cur = conn.cursor()
 
