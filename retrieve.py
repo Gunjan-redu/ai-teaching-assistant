@@ -1,13 +1,13 @@
 import voyageai
 from dotenv import load_dotenv
-import time
+import os
 import psycopg2
 
 load_dotenv()
 
 vo = voyageai.Client()
 
-conn = psycopg2.connect(host="localhost", port =5433, dbname = "teaching_assistant", user="postgres", password = "secret")
+conn = psycopg2.connect(host=os.environ["DB_HOST"], port =os.environ["DB_Port"], dbname = os.environ["DB_NAME"], user=os.environ["DB_USER"], password = os.environ["DB_PASSWORD"])
 cur = conn.cursor()
 
 def find_relevant_chunk(question: str, top_k=3) -> list[dict]:

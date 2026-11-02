@@ -1,3 +1,4 @@
+import os
 from dotenv import load_dotenv
 from chunker import chunk_documents
 import psycopg2
@@ -8,7 +9,7 @@ load_dotenv()
 
 docs = ["documents/01_variables.md", "documents/02_loops.md", "documents/03_functions.md"]
 
-conn = psycopg2.connect(host="localhost", port =5433, dbname = "teaching_assistant", user="postgres", password = "secret")
+conn = psycopg2.connect(host=os.environ["DB_HOST"], port =os.environ["DB_Port"], dbname = os.environ["DB_NAME"], user=os.environ["DB_USER"], password = os.environ["DB_PASSWORD"])
 
 cur = conn.cursor()
 
