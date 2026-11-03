@@ -24,10 +24,20 @@ def answer_question(query: str) -> dict:
         return {"answer": "This topic isn't covered in the course materials.",
                 "sources": []}
 
+    seen = set()
+
     answer=  "".join(b.text for b in message.content if b.type == "text")
 
-    sources=  [ {"doc": c["doc"], "heading": c["heading"]}   for c in chunks]
+    sources = []
+    for c in chunks:
+        if (c['doc'], c['heading']) not in seen:
+            seen.add((c['doc'], c['heading']))
+            sources.append({"doc": c["doc"], "heading": c["heading"]})
+
+
+
     return {"answer": answer, "sources": sources }
+
 
 
 
