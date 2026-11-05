@@ -2,6 +2,9 @@
 **Live demo:** https://ai-teaching-assistant-d2tw.onrender.com/
 *(Free-tier hosting — first request after idle takes ~50s to wake.)*
 
+[Blog post](https://dev.to/gunjan-redu/i-built-an-ai-teaching-assistant-and-it-found-gaps-in-my-own-teaching-material-g19)
+
+
 ![AI Teaching Assistant answering a question](assets/demo-screenshot.png)
 
 

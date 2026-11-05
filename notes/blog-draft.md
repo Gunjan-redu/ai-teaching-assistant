@@ -151,11 +151,13 @@ For example, when I wanted to point the application to a database in Tokyo, I on
 
 The teaching assistant is now deployed, and I can ask it questions about the Python concepts covered in my documents.
 
-[https://ai-teaching-assistant-d2tw.onrender.com/](https://ai-teaching-assistant-d2tw.onrender.com/)
+[Live Demo](https://ai-teaching-assistant-d2tw.onrender.com/)
 
 ![AI teaching assistant](assets/demo-screenshot.png)
 
 [Github repo](https://github.com/Gunjan-redu/ai-teaching-assistant)
+
+
 There are still things I'd like to improve, especially around retrieval quality and testing how well the assistant handles questions that aren't covered in the documents.
 
 But this project taught me quite a bit, not just about RAG, embeddings, vector databases and deployment, but also about something I hadn't expected: how building a tool to teach something can sometimes reveal gaps in the way you teach it yourself.
